@@ -1,0 +1,63 @@
+{
+  "name": "lowcode-vue",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "lint:es": "eslint src/**/*.{vue,js,ts}",
+    "lint:fix": "eslint src/**/*.{vue,js,ts} --fix && stylelint src/**/*.vue --fix",
+    "lint:style": "stylelint src/**/*.vue",
+    "spellcheck": "cspell lint --dot --gitignore --color --cache src/**/*.{ts,js,vue,md,json,yaml,yml}",
+    "prepare": "husky",
+    "commit": "git-cz",
+    "test": "vitest"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": "eslint --fix",
+    "*.vue": "stylelint --fix"
+  },
+  "dependencies": {
+    "@icon-park/vue-next": "1.4.2",
+    "lucide-vue-next": "^1.0.0",
+    "pinia": "^4.1.0",
+    "smooth-dnd": "0.12.1",
+    "vue": "^3.5.42",
+    "vue-router": "4.4.0"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "21.2.3",
+    "@cspell/dict-lorem-ipsum": "4.0.5",
+    "@eslint/js": "10.0.1",
+    "@types/node": "^24.13.3",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vitejs/plugin-vue-jsx": "5.1.6",
+    "@vue/tsconfig": "^0.9.1",
+    "commitizen": "4.3.0",
+    "commitlint": "21.2.3",
+    "conventional-changelog-conventionalcommits": "10.4.1",
+    "cspell": "10.4.0",
+    "cz-git": "1.14.0",
+    "eslint": "10.12.0",
+    "eslint-plugin-simple-import-sort": "14.0.0",
+    "eslint-plugin-vue": "10.11.1",
+    "husky": "9.1.7",
+    "lint-staged": "^17.6.0",
+    "stylelint": "17.16.0",
+    "stylelint-config-html": "2.0.0",
+    "stylelint-config-recommended": "18.0.0",
+    "stylelint-config-recommended-vue": "2.0.0",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "8.71.2",
+    "vite": "^8.3.0",
+    "vitest": "5.0.5",
+    "vue-tsc": "^3.3.11"
+  }
+}
