@@ -32,9 +32,10 @@ export default ts.config(
     },
     {
         rules: {
-            // 第三方库(smooth-dnd)封装允许 any，降级为警告避免阻断提交
-            '@typescript-eslint/no-explicit-any': 'warn',
-            '@typescript-eslint/no-unnecessary-type-constraint': 'warn'
+            // 低代码项目 + 第三方库(smooth-dnd)封装大量使用 any，直接关闭相关限制
+            '@typescript-eslint/no-explicit-any': 'off',
+            '@typescript-eslint/no-unnecessary-type-constraint': 'off',
+            '@typescript-eslint/ban-ts-comment': 'off'
         }
     }
 )

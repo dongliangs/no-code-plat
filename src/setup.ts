@@ -40,7 +40,7 @@ class BlockSuite {
   getBlocks() {
     return this.blocks
   }
-  addBlock(block: any) {
+  addBlock(block: any | unknown ) {
     this.blocks.push(block)
   }
   hasBlock(type: BlockType) {
@@ -91,7 +91,7 @@ export const setup = (app: App<Element>) => {
 // https://github.com/microsoft/rushstack/issues/1709
 
 // TODO: figure out why it cannot be 'vue'
-// @ts-ignore: works on Vue 3, fails in Vue 2
+// @ts-expect-error: works on Vue 3, fails in Vue 2
 declare module '@vue/runtime-core' {
   export interface ComponentCustomProperties {
     /**
