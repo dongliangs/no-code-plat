@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BlockRenderer from '@/blocks/BlockRenderer.vue'
+
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
 import StatusBar from './StatusBar.vue'
 import type { PreviewType } from './type'
@@ -32,7 +34,9 @@ Byelide
 </div>
         </div>
       </div>
-      <div class="simulator" />
+      <div class="simulator">
+         <BlockRenderer />
+      </div>
     </div>
   </div>
 </template>

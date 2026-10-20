@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BlockRenderer from '@/blocks/BlockRenderer.vue'
+
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
 import type { PreviewType } from './type'
 const props = defineProps<{
@@ -33,7 +35,9 @@ https://helloword.com/sdfsfsdf/sggwefwfsdfsdfsdfsdfsf
 Byelide
 </div>
       </div>
-      <div class="layout-runner-content" />
+      <div class="layout-runner-content">
+        <BlockRenderer />
+      </div>
     </div>
   </div>
 </template>

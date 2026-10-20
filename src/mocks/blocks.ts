@@ -9,7 +9,7 @@ export const blocks: {
   {
     id: '1',
     type: 'quote',
-    label: '引用',
+    label: '引述',
     props: {
       title: '标题',
       subTitle: '副标题'
