@@ -67,6 +67,7 @@ const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
         <component 
           :is="$blocksMap[block.type].material" 
           class="block"
+          :content="block.props?.content"
           />
         <div
           :class="[

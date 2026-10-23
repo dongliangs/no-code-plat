@@ -1,8 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterView } from 'vue-router'
+
+import DataSourceLeftPanel from '@/components/DataSourceLeftPanel.vue'
+</script>
 
 <template>
   <div class="ds-wrapper">
-    dataSource
+    <DataSourceLeftPanel />
+    <RouterView />
   </div>
 </template>
 

@@ -37,7 +37,14 @@
     "@tiptap/core": "3.32.0",
     "@tiptap/vue-3": "3.32.0",
     "@tiptap/pm": "3.32.0",
-    "@tiptap/starter-kit": "3.32.0"
+    "@tiptap/starter-kit": "3.32.0",
+    "veaury":"2.6.3",
+    "@glideapps/glide-data-grid":"6.0.3",
+    "react":"19.3.1",
+    "react-dom":"19.3.1",
+    "echarts":"6.1.0",
+    "vue-echarts": "8.3.2",
+    "@vueuse/core": "15.0.0"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "21.2.3",
@@ -46,6 +53,7 @@
     "@types/node": "^24.13.3",
     "@vitejs/plugin-vue": "^6.0.8",
     "@vitejs/plugin-vue-jsx": "5.1.6",
+    "@vitejs/plugin-react": "6.1.2",
     "@vue/tsconfig": "^0.9.1",
     "commitizen": "4.3.0",
     "commitlint": "21.2.3",

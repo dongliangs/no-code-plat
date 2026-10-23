@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useFullscreen } from '@vueuse/core'
+import { ref } from 'vue'
+
 import BlockRenderer from '@/blocks/BlockRenderer.vue'
 
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
@@ -8,6 +11,10 @@ import type { PreviewType } from './type'
 const props = defineProps<{
   previewMode?: PreviewType
 }>()
+const runner = ref<HTMLElement | null>(null)
+
+const { toggle } = useFullscreen(runner)
+
 const emit = defineEmits<{
   'preview-mode-change': [mode: PreviewType]
 }>()
@@ -18,12 +25,16 @@ function greet(mode: PreviewType) {
 </script>
 
 <template>
-  <div class="layout-runner">
+  <div
+ref="runner"
+class="layout-runner"
+>
     <div class="layout-runner-navigator">
       <PreviewModeSwitcher
-:preview-mode="props.previewMode"
-@preview-mode-change="greet"
-/>
+        :preview-mode="props.previewMode"
+        @preview-mode-change="greet"
+        @full-screen="toggle"
+      />
     </div>
     <div class="simulator-wrapper">
       <div class="simulator-header">
@@ -35,7 +46,7 @@ Byelide
         </div>
       </div>
       <div class="simulator">
-         <BlockRenderer />
+        <BlockRenderer />
       </div>
     </div>
   </div>

@@ -1,63 +1,56 @@
-import type { BlockType } from '@/types/block'
+import type { BlockInfo } from '@/types/block'
 
-export const blocks: {
-  id: string
-  type: BlockType
-  label: string
-  props: Record<string, string>
-}[] = [
+export const blocks: BlockInfo[] = [
   {
     id: '1',
     type: 'quote',
     label: '引述',
     props: {
-      title: '标题',
-      subTitle: '副标题'
+      content: '引述文本 quote'
     }
   },
   {
     id: '2',
-    type: 'notes',
-    label: '笔记',
+    type: 'chart',
+    label: '图表',
     props: {
-      title: '标题',
-      subTitle: '副标题'
+      content: '图表'
     }
   },
   {
     id: '3',
-    type: 'heroTitle',
-    label: '标题',
+    type: 'notes',
+    label: '笔记',
     props: {
-      title: '标题',
-      subTitle: '副标题'
+      content: `
+          <p>I’m <em>running</em> Tiptap <s>with</s> Vue.js. 🎉</p>
+          <p><strong>You</strong> can also teach the editor new things. For example to recognize hex colors and add a color</p>
+          <p> swatch on the fly: #FFF, #0D0D0D, #616161, #A975FF, #FB5151, #FD9170, #FFCB6B, #68CEF8, #80cbc4, #9DEF8F </p>
+        `
     }
   },
   {
     id: '4',
-    type: 'image',
-    label: '图片',
+    type: 'heroTitle',
+    label: '标题',
     props: {
-      title: '标题',
-      subTitle: '副标题'
+      content: '标题'
     }
   },
   {
     id: '5',
-    type: 'view',
-    label: '视图',
+    type: 'image',
+    label: '图片',
     props: {
-      title: '标题',
-      subTitle: '副标题'
+      url: 'https://images.pexels.com/photos/2577274/pexels-photo-2577274.jpeg?auto=compress&cs=tinysrgb&w=1600'
     }
   },
   {
     id: '6',
-    type: 'chart',
-    label: '图表',
+    type: 'view',
+    label: '视图',
     props: {
-      title: '标题',
-      subTitle: '副标题'
+      content: '视图'
     }
   },
   {
@@ -65,8 +58,7 @@ export const blocks: {
     type: 'button',
     label: '按钮',
     props: {
-      title: '标题',
-      subTitle: '副标题'
+      content: '按钮'
     }
   },
   {
@@ -74,8 +66,7 @@ export const blocks: {
     type: 'form',
     label: '表单',
     props: {
-      title: '标题',
-      subTitle: '副标题'
+      fields: []
     }
   }
 ]

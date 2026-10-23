@@ -9,7 +9,7 @@ export default {
         {
             files: ['*.vue', '**/*.vue'],
             rules: {
-                'unit-allowed-list': ['px', '%', 'em', 'rem', 's', 'fr'],
+                'unit-allowed-list': ['px', '%', 'em', 'rem', 's', 'fr', 'vh'],
                 // 脚手架生成的 .vue 常带空 <style> 占位块，关闭该提示
                 'no-empty-source': null
             }

@@ -39,7 +39,7 @@ const envStore = useEnvStore()
 const route = useRoute()
 console.log('🚀 ~ file: AppNavigator.vue:35 ~ route:', JSON.parse(JSON.stringify(route)))
 
-const activeLink = computed(() => route.name)
+const activeLink = computed(() => route.path)
 
 // 等价于 computed
 // const activeLink = ref(route.path.slice(1))
@@ -89,12 +89,12 @@ Byelide
 </h1>
     </div>
     <div class="app-navigator-link-wrapper">
-      <RouterLink
+      <router-link
         v-for="item in linkItems"
         :key="item.value"
         class="app-navigator-link-item"
-        :style="activeLink === item.value && { background: item.bg }"
-        :to="item.value"
+        :style="activeLink.includes(item.value) && { background: item.bg }"
+        :to="`/app/${item.value}`"
       >
         <!-- defineComponent + h 代替条件渲染 -->
         <!-- <div v-if="item.value === 'dataSource'"><Data /></div>
@@ -103,12 +103,12 @@ Byelide
         <div
           :style="{
             lineHeight: 0.7,
-            color: activeLink === item.value ? item.color : 'var(--color-gray-700)'
+            color: activeLink.includes(item.value) ? item.color : 'var(--color-gray-700)'
           }"
         >
           <Icon
 :type="item.value"
-:active="activeLink === item.value"
+:active="activeLink.includes(item.value)"
 />
         </div>
         <span class="item-title">
@@ -116,9 +116,9 @@ Byelide
         </span>
         <div
           class="item-border"
-          :style="activeLink === item.value ? { background: item.borderColor } : {}"
+          :style="activeLink.includes(item.value) ? { background: item.borderColor } : {}"
         />
-      </RouterLink>
+      </router-link>
     </div>
     <div class="app-setting-wrapper">
       <div

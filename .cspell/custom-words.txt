@@ -1,3 +1,13 @@
 behaviour
 Byelide
-Vetur
+commitlint
+conventionalcommits
+echats
+glideapps
+optimizelegibility
+pinia
+tiptap
+veaury
+vuedraggable
+vuejs
+vueuse

@@ -5,11 +5,6 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path:'/',
-      name: 'app',
-      redirect: '/app/layout'
-    },
-    {
       path: '/app',
       name: 'home',
       component: AppView,
@@ -17,7 +12,17 @@ const router = createRouter({
         {
           path: 'dataSource',
           name: 'dataSource',
-          component: () => import('../views/DataSourceView.vue')
+          component: () => import('../views/DataSourceView.vue'),
+          children: [
+            {
+              path: ':id',
+              component: () => import('../views/DataSourceContent/DataSourceContent.vue')
+            },
+            {
+              path: '',
+              redirect: '/app/dataSource/1'
+            }
+          ]
         },
         {
           path: 'layout',
@@ -30,6 +35,18 @@ const router = createRouter({
           component: () => import('../views/ActionsView.vue')
         }
       ]
+    },
+    {
+      path: '/about',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/AboutView.vue')
+    },
+    {
+      path: '/',
+      redirect: '/app/layout'
     }
   ]
 })
