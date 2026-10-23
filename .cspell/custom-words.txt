@@ -1,4 +1,5 @@
 behaviour
+autoresize
 Byelide
 commitlint
 conventionalcommits
