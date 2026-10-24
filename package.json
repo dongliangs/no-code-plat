@@ -44,13 +44,18 @@
     "react-dom":"19.3.1",
     "echarts":"6.1.0",
     "vue-echarts": "8.3.2",
-    "@vueuse/core": "15.0.0"
+    "@vueuse/core": "15.0.0",
+    "zrender": "6.1.0",
+    "d3":"7.9.0",
+    "vue-json-pretty": "2.6.0",
+    "copy-text-to-clipboard": "3.2.2"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "21.2.3",
     "@cspell/dict-lorem-ipsum": "4.0.5",
     "@eslint/js": "10.0.1",
     "@types/node": "^24.13.3",
+    "@types/d3": "7.4.3",
     "@vitejs/plugin-vue": "^6.0.8",
     "@vitejs/plugin-vue-jsx": "5.1.6",
     "@vitejs/plugin-react": "6.1.2",

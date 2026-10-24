@@ -1,123 +1,75 @@
 <script setup lang="ts">
-import { Delete,Drag } from '@icon-park/vue-next'
-import { storeToRefs } from 'pinia'
-import { dropHandlers,type DropResult, smoothDnD } from 'smooth-dnd'
-import { toRaw } from 'vue'
+import { Delete, Drag } from '@icon-park/vue-next'
+import { dropHandlers, smoothDnD } from 'smooth-dnd'
+import { inject,ref } from 'vue'
 
-import { SmoothDndContainer } from '@/components/SmoothDnd/SmoothDndContainer'
-import { SmoothDndDraggable } from '@/components/SmoothDnd/SmoothDndDraggable'
 import { useAppEditorStore } from '@/stores/appEditor'
 import { useEnvStore } from '@/stores/debug'
-import { arrayMove } from '@/utils/array'
+
+// import { useClickOutside } from '@/hooks/useClickOutside'
+
+defineProps<{
+  block: BlockInfo
+  i: number
+}>()
+
+import { storeToRefs } from 'pinia'
+
+import type { BlockInfo } from '@/types/block'
 
 smoothDnD.dropHandler = dropHandlers.reactDropHandler().handler
 
 // const props = defineProps<{
 //   type: BlockType
 // }>()
-
+const blockWrapperRef = ref<HTMLElement | null>(null)
 const envStore = useEnvStore()
 const appEditorStore = useAppEditorStore()
 
 const { currentBlockId, blocks } = storeToRefs(appEditorStore)
-const { selectBlock, updateBlocks } = appEditorStore
+const { selectBlock } = appEditorStore
 
-const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
-  const { removedIndex, addedIndex, payload } = dragResult
-
-  const result = [...arr]
-
-  // 没做操作
-  if (addedIndex === null) return result
-
-  // 添加
-  if (addedIndex !== null && removedIndex === null) {
-    result.splice(addedIndex, 0, {
-      id: `${Math.random()}`,
-      ...payload
-    })
-  }
-
-  // 移动
-  if (addedIndex !== null && removedIndex !== null) {
-    return arrayMove(result, removedIndex, addedIndex)
-  }
-
-  return result
-}
+// 需要保证 blocksMap 在 BlockRenderer 之前被注入，并且我们暂时使用的 Symbol 作为 key
+// console.log(inject('blocksMap'))
+// useClickOutside(blockWrapperRef)
+const editable = inject('editable', true)
 </script>
 
 <template>
-  <smooth-dnd-container
-    drag-handle-selector=".handle"
-    group-name="blocks"
-    orientation="vertical"
-    tag="div"
-    @drop="updateBlocks(applyDrag(toRaw(blocks), $event))"
-  >
-    <smooth-dnd-draggable 
-      v-for="(block, i) in blocks" 
-      :key="block.id"
-      >
-      <div 
-        class="block-wrapper" 
-        @click.stop="selectBlock(block.id)"
-        >
-        <!-- @vue-ignore -->
-        <component 
-          :is="$blocksMap[block.type].material" 
-          class="block"
-          :content="block.props?.content"
-          />
-        <div
-          :class="[
-            'block-wrapper-indicator',
-            { shown: envStore.debug, selected: currentBlockId === block.id }
-          ]"
-        >
-          <div
+  <div
+ref="blockWrapperRef"
+class="block-wrapper"
+@click.stop="selectBlock(block.id)"
+>
+    <!-- @vue-ignore -->
+    <component 
+      :is="$blocksMap[block.type].material" 
+      class="block" 
+      :block-info="block" 
+    />
+    <div
+      v-if="editable"
+      :class="[
+        'block-wrapper-indicator',
+        { shown: envStore.debug, selected: currentBlockId === block.id }
+      ]"
+    >
+      <div
 v-if="currentBlockId === block.id"
 class="block-toolbar"
 >
-            <div class="block-toolbar-item handle">
-              <drag />
-            </div>
-            <div
+        <div class="block-toolbar-item handle">
+          <drag />
+        </div>
+        <div
 class="block-toolbar-item"
 @click="blocks.splice(i, 1)"
 >
-              <delete />
-            </div>
-          </div>
-        </div>
-      </div>
-    </smooth-dnd-draggable>
-  </smooth-dnd-container>
-  <!-- <div ref="containerRef">
-    <div
-      class="block-wrapper"
-      v-for="(d, i) in b"
-      :key="d.id"
-      @click.stop="appEditorStore.selectBlock(d.id)"
-    >
-      <component :is="d.material" class="block" />
-      <div
-        :class="[
-          'block-wrapper-indicator',
-          { shown: envStore.debug, selected: appEditorStore.currentBlockId === d.id }
-        ]"
-      >
-        <div class="block-toolbar" v-if="appEditorStore.currentBlockId === d.id">
-          <div class="block-toolbar-item handle">
-            <drag />
-          </div>
-          <div class="block-toolbar-item" @click="b.splice(i, 1)">
-            <delete />
-          </div>
+          <delete />
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <style scoped>

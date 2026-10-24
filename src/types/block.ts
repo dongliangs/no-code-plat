@@ -5,24 +5,24 @@ export type BlockType = BasicBlockType | ExternalBlockType
 
 export interface BaseBlockInfo {
   id: string
-  type: BlockType
   label: string
 }
 
 // basic
 
 export interface HeroTitleBlockInfo extends BaseBlockInfo {
+  type: 'heroTitle'
   props: {
     content: string
   }
 }
 
 export interface ViewBlockInfo extends BaseBlockInfo {
+  type: 'view',
   props: {
-    fields: {
-      id: string
+    fields: Record<string, {
       type: string
-    }
+    }>
     fieldProps: {
       width: number
       visible: boolean
@@ -31,13 +31,18 @@ export interface ViewBlockInfo extends BaseBlockInfo {
   }
 }
 
+export type QuoteBlockStatus = 'success' | 'warning' | 'error'
+
 export interface QuoteBlockInfo extends BaseBlockInfo {
+  type: 'quote',
   props: {
     content: string
+    status: QuoteBlockStatus
   }
 }
 
 export interface ImageBlockInfo extends BaseBlockInfo {
+  type: 'image',
   props: {
     url: string
   }
@@ -45,12 +50,14 @@ export interface ImageBlockInfo extends BaseBlockInfo {
 
 // external
 export interface ButtonBlockInfo extends BaseBlockInfo {
+  type: 'button',
   props: {
-    text: string
+    content: string
   }
 }
 
 export interface FormBlockInfo extends BaseBlockInfo {
+  type: 'form',
   props: {
     fields: {
       type: string
@@ -61,12 +68,31 @@ export interface FormBlockInfo extends BaseBlockInfo {
   }
 }
 
+export interface NotesBlockInfo extends BaseBlockInfo {
+  type: 'notes',
+  props: {
+    content: string
+  }
+}
+
+
+export type ChartType = 'echarts' | 'canvas' | 'svg'
+
+export interface ChartBlockInfo extends BaseBlockInfo {
+  type: 'chart',
+  props: {
+    chartType: ChartType
+  }
+}
+
 export type BlockInfo =
   // basic
   | HeroTitleBlockInfo
   | ViewBlockInfo
   | QuoteBlockInfo
   | ImageBlockInfo
+  | ChartBlockInfo
   // external
   | ButtonBlockInfo
   | FormBlockInfo
+  | NotesBlockInfo

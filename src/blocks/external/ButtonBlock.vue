@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     required: true
@@ -9,7 +9,7 @@ const props = defineProps({
     required: true
   }
 })
-console.log('🚀 ~ file: ButtonBlock.vue:12 ~ props:', props)
+
 </script>
 
 <template>

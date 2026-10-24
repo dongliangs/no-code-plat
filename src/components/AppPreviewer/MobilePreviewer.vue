@@ -2,7 +2,7 @@
 import { useFullscreen } from '@vueuse/core'
 import { ref } from 'vue'
 
-import BlockRenderer from '@/blocks/BlockRenderer.vue'
+import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
 
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
 import StatusBar from './StatusBar.vue'
@@ -46,7 +46,7 @@ Byelide
         </div>
       </div>
       <div class="simulator">
-        <BlockRenderer />
+        <BlocksRenderer />
       </div>
     </div>
   </div>

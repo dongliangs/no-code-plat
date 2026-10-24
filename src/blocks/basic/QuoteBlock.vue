@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Error, Success, Wallet } from '@icon-park/vue-next'
 
+import type { QuoteBlockInfo } from '@/types/block';
+
 const STATUS_MAP = {
   success: {
     color: '#059669',
@@ -22,18 +24,19 @@ const STATUS_MAP = {
   }
 }
 
-const props = withDefaults(
-  defineProps<{
-    status: keyof typeof STATUS_MAP
-    content: string
-  }>(),
-  {
-    status: 'success',
-    content: 'quote'
-  }
-)
+// const props = withDefaults(
+//   defineProps<{
+//     status: keyof typeof STATUS_MAP
+//     content: string
+//   }>(),
+//   {
+//     status: 'success',
+//     content: 'quote'
+//   }
+// )
+const props = defineProps<{blockInfo: QuoteBlockInfo}>()
 
-const { color, bgColor, /* borderColor, */ icon } = STATUS_MAP[props.status]
+const { color, bgColor, /* borderColor, */ icon } = STATUS_MAP[props.blockInfo.props.status]
 </script>
 
 <template>

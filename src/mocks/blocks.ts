@@ -6,7 +6,8 @@ export const blocks: BlockInfo[] = [
     type: 'quote',
     label: '引述',
     props: {
-      content: '引述文本 quote'
+      content: '引述文本 quote',
+      status: 'success'
     }
   },
   {
@@ -14,7 +15,8 @@ export const blocks: BlockInfo[] = [
     type: 'chart',
     label: '图表',
     props: {
-      content: '图表'
+      content: '图表',
+      chartType: 'echarts'
     }
   },
   {
@@ -50,7 +52,15 @@ export const blocks: BlockInfo[] = [
     type: 'view',
     label: '视图',
     props: {
-      content: '视图'
+      fields: {
+        'id': {
+          type: 'text',
+
+        },
+
+      },
+      fieldProps:[],
+      data:[]
     }
   },
   {

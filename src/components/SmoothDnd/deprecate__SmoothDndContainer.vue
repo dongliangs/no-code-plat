@@ -17,8 +17,7 @@ const props = withDefaults(defineProps<SmoothDnDWrapperProps>(), {
   sortKey: 'id',
   data: []
 })
- 
-console.log('🚀 ~ file: SmoothDndContainer.vue:17 ~ props ~ props:', props.data)
+
 
 const containerRef = ref()
 
