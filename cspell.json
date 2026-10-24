@@ -18,6 +18,7 @@
     "**/language/**",
     "**/language.ts",
     "**/package.json",
-    "eslint.config.js"
+    "eslint.config.js",
+    "**/detect.ts"
   ]
 }

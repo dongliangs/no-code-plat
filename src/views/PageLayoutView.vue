@@ -1,15 +1,18 @@
 <template>
 	<div class="layout-wrapper">
     <AppLeftPanel />
-    <AppPreviewer />
+    <!-- <AppPreviewer /> -->
+     <AppEditorRenderer />
     <AppRightPanel />
   </div>
 </template>
 
 <script setup lang="ts">
+import AppEditorRenderer from '@/components/AppEditorRenderer/AppEditorRenderer.vue';
 import AppLeftPanel from '@/components/AppLeftPanel/AppLeftPanel.vue'
-import AppPreviewer from '@/components/AppPreviewer/AppPreviewer.vue'
+// import AppPreviewer from '@/components/AppPreviewer/AppPreviewer.vue'
 import AppRightPanel from '@/components/AppRightPanel/AppRightPanel.vue'
+
 </script>
 
 <style scoped>

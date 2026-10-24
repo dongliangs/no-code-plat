@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Delete, Drag } from '@icon-park/vue-next'
 import { dropHandlers, smoothDnD } from 'smooth-dnd'
-import { inject,ref } from 'vue'
+import { inject, ref } from 'vue'
 
 import { useAppEditorStore } from '@/stores/appEditor'
 import { useEnvStore } from '@/stores/debug'
@@ -42,18 +42,18 @@ class="block-wrapper"
 @click.stop="selectBlock(block.id)"
 >
     <!-- @vue-ignore -->
-    <component 
-      :is="$blocksMap[block.type].material" 
-      class="block" 
-      :block-info="block" 
-    />
+    <component
+:is="$blocksMap[block.type].material"
+class="block"
+:block-info="block"
+/>
     <div
-      v-if="editable"
-      :class="[
-        'block-wrapper-indicator',
-        { shown: envStore.debug, selected: currentBlockId === block.id }
-      ]"
-    >
+v-if="editable"
+:class="[
+      'block-wrapper-indicator',
+      { shown: envStore.debug, selected: currentBlockId === block.id }
+    ]"
+>
       <div
 v-if="currentBlockId === block.id"
 class="block-toolbar"

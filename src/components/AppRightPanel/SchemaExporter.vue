@@ -59,4 +59,17 @@ const handleCopyText = () => {
 .icon:hover {
   color: var(--color-primary);
 }
+.json-pretty {
+  color: var(--color-gray-800);
+}
+</style>
+
+<style>
+.vjs-tree-node {
+  border-radius: 6px;
+}
+.vjs-tree-node:hover {
+  background-color: var(--color-gray-300);
+  font-weight: var(--font-weight-bolder);
+}
 </style>

@@ -7,7 +7,6 @@ let timer: number | null = null
 
 onMounted(() => {
   // 注意，一定要使用 window.setInterval，否则 ts 类型报错
-   
   timer = window.setInterval(() => {
     const date = new Date()
     time.value = date.toLocaleTimeString()
