@@ -21,7 +21,7 @@ class="outline-item"
 >
         <component :is="blocksBaseMeta[block.type].icon" />
         <span class="outline-item-name">
-          {{ blocksBaseMeta[block.type].name }}
+          {{ blocksBaseMeta[block.type].label }}
         </span>
         <span class="outline-item-title">
           {{ block.label }}

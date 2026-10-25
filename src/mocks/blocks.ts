@@ -15,7 +15,6 @@ export const blocks: BlockInfo[] = [
     type: 'chart',
     label: '图表',
     props: {
-      content: '图表',
       chartType: 'echarts'
     }
   },

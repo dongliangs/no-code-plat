@@ -5,6 +5,7 @@ import { toRaw } from 'vue'
 
 import { SmoothDndContainer } from '@/components/SmoothDnd/SmoothDndContainer'
 import { SmoothDndDraggable } from '@/components/SmoothDnd/SmoothDndDraggable'
+// import { getBlocksDefaultData } from '@/constants/blocksBaseMeta'
 import { useAppEditorStore } from '@/stores/appEditor'
 import { arrayMove } from '@/utils/array'
 
@@ -54,6 +55,7 @@ const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
     group-name="blocks"
     orientation="vertical"
     tag="div"
+    class="renderer-dnd-container"
     @drop="updateBlocks(applyDrag(toRaw(blocks), $event))"
   >
     <smooth-dnd-draggable
@@ -69,6 +71,9 @@ v-for="(block, i) in blocks"
 </template>
 
 <style scoped>
+.renderer-dnd-container {
+  width: 100%;
+}
 .block-wrapper {
   position: relative;
   display: flex;

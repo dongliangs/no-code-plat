@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { watch } from 'vue'
+import { computed } from 'vue'
 
 import type { ChartBlockInfo, ChartType } from '@/types/block'
 import SegmentedControl from '@/ui/SegmentedControl/SegmentedControl.vue'
@@ -27,19 +26,17 @@ const data = [
 
 const emit = defineEmits<{ (event: 'change', block: ChartBlockInfo): void }>()
 
-const { values, defineField } = useForm({
-  initialValues: {
-    chartType: props.blockInfo.props.chartType
-  }
-})
+// chartType 直接以 store 中的 blockInfo.props.chartType 为准（受控），
+// 切换时通过 emit change 回写，而不是用 useForm 的本地状态，
+// 否则切走再切回时 useForm 会重新按 initialValues 初始化为默认值，导致选中状态丢失
+const chartType = computed(() => props.blockInfo.props.chartType)
 
-const chartType = defineField('chartType')
-
-watch([values], ([newValues]) => {
-  emit('change', { ...props.blockInfo, props: { ...props.blockInfo.props, ...newValues } })
-})
-
-// const c = useField('content')
+function handleChange(val: string) {
+  emit('change', {
+    ...props.blockInfo,
+    props: { ...props.blockInfo.props, chartType: val as ChartType }
+  })
+}
 </script>
 
 <template>
@@ -47,16 +44,9 @@ watch([values], ([newValues]) => {
     {{ props.blockInfo.type }}
   </div>
   <segmented-control
-    v-model="chartType"
+    :value="chartType"
     :data="data"
-    @input="
-      (val) => {
-        emit('change', {
-          ...props.blockInfo,
-          props: { ...props.blockInfo.props, chartType: val as ChartType }
-        })
-      }
-    "
+    @input="handleChange"
   />
 </template>
 

@@ -19,7 +19,7 @@ const { values, defineField } = useForm({
 })
 const { fields, push } = useFieldArray('blocks')
 
-const content = defineField('content')
+const [content, contentAttrs] = defineField('content')
 
 watch([values], ([newValues]) => {
   console.log(
@@ -41,8 +41,9 @@ watch([values], ([newValues]) => {
     <!-- 如果用 v-model，是受控组件 1，不是受控组件 2 -->
     <!-- <input class="content-input" :defaultValue="props.blockInfo.props.content" /> -->
     <input
+v-model="content"
 class="content-input"
-v-bind="content"
+v-bind="contentAttrs"
 >
 
     <input

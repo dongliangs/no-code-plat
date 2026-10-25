@@ -44,11 +44,11 @@
     "react-dom":"19.3.1",
     "echarts":"6.1.0",
     "vue-echarts": "8.3.2",
-    "@vueuse/core": "15.0.0",
     "zrender": "6.1.0",
     "d3":"7.9.0",
     "vue-json-pretty": "2.6.0",
-    "copy-text-to-clipboard": "3.2.2"
+    "copy-text-to-clipboard": "3.2.2",
+    "nanoid": "6.0.2"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "21.2.3",
@@ -78,6 +78,7 @@
     "typescript-eslint": "8.71.2",
     "vite": "^8.3.0",
     "vitest": "5.0.5",
-    "vue-tsc": "^3.3.11"
+    "vue-tsc": "^3.3.11",
+    "rollup-plugin-visualizer":"7.1.1"
   }
 }

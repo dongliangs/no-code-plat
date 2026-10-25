@@ -45,7 +45,7 @@ const { color, bgColor, /* borderColor, */ icon } = STATUS_MAP[props.blockInfo.p
     :style="{ backgroundColor: bgColor, color /* , border: `1px solid ${borderColor}` */ }"
   >
     <component :is="icon" />
-    <span class="quote-text">{{ content }}</span>
+    <span class="quote-text">{{ props.blockInfo.props.content }}</span>
   </div>
 </template>
 

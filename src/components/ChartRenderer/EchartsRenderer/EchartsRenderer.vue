@@ -1,8 +1,8 @@
 <template>
   <v-chart
+ref="chartInstance"
 class="chart"
 :option="option"
-autoresize
 />
 </template>
 
@@ -16,7 +16,7 @@ import {
   TooltipComponent} from 'echarts/components'
 import { graphic,use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
-import { provide,ref } from 'vue'
+import { onBeforeUnmount, onMounted, provide,ref } from 'vue'
 import VChart, { THEME_KEY } from 'vue-echarts'
 
 use([
@@ -212,6 +212,19 @@ const option = ref({
       data: [220, 302, 181, 234, 210, 290, 150]
     }
   ]
+})
+
+const chartInstance = ref<InstanceType<typeof VChart>>()
+const resizeHandler = () => {
+  chartInstance.value?.resize()
+}
+onMounted(() => {
+ 
+  window.addEventListener('resize', resizeHandler)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('resize',resizeHandler)
+  chartInstance.value?.dispose()
 })
 </script>
 

@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue'
+import { defineComponent, h, renderSlot } from 'vue'
 import { smoothDnD, dropHandlers } from 'smooth-dnd'
 import type { SmoothDnD } from 'smooth-dnd'
 import { getTagProps, validateTagProp } from './utils'
@@ -74,7 +74,7 @@ export const SmoothDndContainer = defineComponent({
     return h(
       tagProps.value,
       Object.assign({}, { ref: 'container' }, tagProps.props),
-      this.$slots.default?.()
+      renderSlot(this.$slots, 'default')
     )
   }
 })

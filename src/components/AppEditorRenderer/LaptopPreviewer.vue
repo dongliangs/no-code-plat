@@ -19,7 +19,7 @@ class="layout-runner"
 </template>
 
 <script setup lang="ts">
-import { useFullscreen } from '@vueuse/core';
+// import { useFullscreen } from '@vueuse/core';
 import { ref} from 'vue'
 
 import AppLaptopPreviewer from '../AppPreviewer/LaptopPreviewer.vue'
@@ -31,7 +31,7 @@ const props = defineProps<{
 
 const runner = ref<HTMLElement | null>(null)
 
-const { toggle } = useFullscreen(runner)
+// const { toggle } = useFullscreen(runner)
 
 const emit = defineEmits<{
   'preview-mode-change': [mode: PreviewType]
@@ -39,6 +39,16 @@ const emit = defineEmits<{
 
 function greet(mode: PreviewType) {
   emit('preview-mode-change', mode)
+}
+function toggle() {
+	if (!runner.value) {
+		return
+	}
+	if (document.fullscreenElement) {
+		document.exitFullscreen()
+	} else {
+		runner.value.requestFullscreen()
+	}
 }
 </script>
 
