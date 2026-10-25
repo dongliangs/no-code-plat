@@ -1,6 +1,5 @@
 <template>
 	<div
-ref="runner"
 class="layout-runner"
 >
 		<div class="layout-runner-navigator">
@@ -22,7 +21,6 @@ class="layout-runner"
 
 <script setup lang="ts">
 // import { useFullscreen } from '@vueuse/core';
-import { ref } from 'vue'
 
 import AppMobilePreviewer from '../AppPreviewer/MobilePreviewer.vue'
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue';
@@ -32,8 +30,6 @@ import type { PreviewType } from './type.ts';
 const props = defineProps<{
 	previewMode?:PreviewType
 }>()
-
-const runner = ref<HTMLElement | null>(null)
 
 // const { toggle } = useFullscreen(runner)
 

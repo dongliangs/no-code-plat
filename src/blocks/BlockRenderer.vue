@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Delete, Drag } from '@icon-park/vue-next'
 import { dropHandlers, smoothDnD } from 'smooth-dnd'
-import { inject, ref } from 'vue'
+import { inject } from 'vue'
 
 import { useAppEditorStore } from '@/stores/appEditor'
 import { useEnvStore } from '@/stores/debug'
@@ -22,7 +22,6 @@ smoothDnD.dropHandler = dropHandlers.reactDropHandler().handler
 // const props = defineProps<{
 //   type: BlockType
 // }>()
-const blockWrapperRef = ref<HTMLElement | null>(null)
 const envStore = useEnvStore()
 const appEditorStore = useAppEditorStore()
 
@@ -37,7 +36,6 @@ const editable = inject('editable', true)
 
 <template>
   <div
-ref="blockWrapperRef"
 class="block-wrapper"
 @click.stop="selectBlock(block.id)"
 >

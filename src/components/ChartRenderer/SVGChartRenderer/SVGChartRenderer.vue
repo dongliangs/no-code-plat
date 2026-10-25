@@ -56,7 +56,7 @@ onMounted(() => {
       .attr('stroke', '#000')
       .attr('stroke-width', 1)
       .style('opacity', 0.8)
-      .attr('fill', function (d, i: number) {
+      .attr('fill', function (_d, i: number) {
         return colors(i)
       })
       // @ts-ignore

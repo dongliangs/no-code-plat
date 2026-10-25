@@ -14,8 +14,8 @@ var containerRef = ref<HTMLDivElement | null>(null)
 onMounted(() => {
   var zr = zrender.init(containerRef.value, { renderer: 'svg' })
 
-  var w = zr.getWidth()
-  var h = zr.getHeight()
+  var w = zr.getWidth() || 0
+  var h = zr.getHeight() || 0
 
   var t1 = new zrender.Text({
     style: {
