@@ -85,7 +85,7 @@ const Icon = defineComponent({
         >
       </div>
       <h1 class="app-name">
-Byelide
+LowCode
 </h1>
     </div>
     <div class="app-navigator-link-wrapper">

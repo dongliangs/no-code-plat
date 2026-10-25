@@ -13,7 +13,7 @@ class="layout-runner"
       <div class="layout-runner-content-header">
         <div class="layout-runner-content-navigator" />
         <div class="layout-runner-content-title">
-          Byelide
+          LowCode
         </div>
       </div>
       <div class="layout-runner-content">

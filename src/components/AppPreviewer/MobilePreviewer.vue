@@ -9,7 +9,7 @@ import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
   <div class="content">
     <div class="navigator-wrapper">
       <div class="navigator">
-Byelide
+LowCode
 </div>
     </div>
 
