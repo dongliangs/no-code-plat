@@ -13,3 +13,9 @@ vuedraggable
 vuejs
 vueuse
 zrender
+dexie
+qwen
+deepseek
+indexeddb
+unstub
+vbor
