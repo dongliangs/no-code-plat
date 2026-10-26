@@ -27,7 +27,7 @@
 | 构建 | Vite 8（Rolldown） | 极速 HMR 与产物构建 |
 | 状态管理 | Pinia 4 | Setup Store 风格 |
 | 路由 | Vue Router 4 | 嵌套路由 + 异步组件 |
-| 拖拽 | smooth-dnd 0.12 | React 生态库，自封装为 Vue 组件 |
+| 拖拽 | smooth-dnd 0.12 | Javascript drag&drop，自封装为 Vue 组件 |
 | 表单校验 | vee-validate 4 | `useForm` / `defineField` |
 | 图表 | ECharts 6 / zrender / d3 | 三种图表渲染策略 |
 | 富文本 | Tiptap 3 | 笔记物料编辑器 |

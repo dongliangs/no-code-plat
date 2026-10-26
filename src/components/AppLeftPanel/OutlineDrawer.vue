@@ -16,7 +16,7 @@ const { blocks } = storeToRefs(appEditorStore)
     <ul class="outline-list">
       <li
 v-for="block in blocks"
-:key="block.type"
+:key="block.id"
 class="outline-item"
 >
         <component :is="blocksBaseMeta[block.type].icon" />

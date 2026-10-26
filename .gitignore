@@ -12,10 +12,11 @@ node_modules
 dist
 dist-ssr
 *.local
-
+design
 # Editor directories and files
 .vscode/*
 .vscode
+.env
 !.vscode/extensions.json
 .idea
 .DS_Store
@@ -24,3 +25,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+

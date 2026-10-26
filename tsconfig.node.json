@@ -19,5 +19,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["vite.config.ts", "src/types/veaury.d.ts"]
+  "include": ["vite.config.ts", "vitest.config.ts", "src/types/veaury.d.ts"]
 }

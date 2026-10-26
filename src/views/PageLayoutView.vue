@@ -4,10 +4,12 @@
     <!-- <AppPreviewer /> -->
      <AppEditorRenderer />
     <AppRightPanel />
+    <AiChatPanel />
   </div>
 </template>
 
 <script setup lang="ts">
+import AiChatPanel from '@/components/AiCopilot/AiChatPanel.vue'
 import AppEditorRenderer from '@/components/AppEditorRenderer/AppEditorRenderer.vue';
 import AppLeftPanel from '@/components/AppLeftPanel/AppLeftPanel.vue'
 // import AppPreviewer from '@/components/AppPreviewer/AppPreviewer.vue'
